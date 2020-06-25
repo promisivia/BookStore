@@ -1,0 +1,18 @@
+.home{
+  position: flex;
+}
+
+.book_list{
+  position: relative;
+  margin-top: 20rpx;
+  background-color: white;
+}
+
+.book_card{
+  background-color: white;
+}
+
+.add_button{
+  position: relative;
+  width: 20rpx;
+}

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/IconFont/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../assets/IconFont/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../assets/IconFont/MaterialIcons-Regular.woff) format('woff'),
+    url(../assets/IconFont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+.ant-layout-header {
+    height: 64px;
+    padding: 0 0 0 10px;
+}
+.ant-layout-sider{
+    background: white;
+    top: 0;
+    bottom: 0;
+}
+.ant-carousel {
+    padding: 10px;
+    margin:  auto 40px !important;
+}
+
+.ant-carousel .slick-slide img{
+    width: 100%;
+    height: auto;
+    background: #364d79;
+    margin: 0 auto;
+    position: relative;
+}
+
+.site-layout-background{
+    padding: 24px;
+    margin: 0 1%;
+    min-height: 280px;
+}

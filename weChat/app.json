@@ -1,0 +1,53 @@
+{
+  "pages": [ 
+    "pages/profile/profile",  
+    "pages/cart/cart", 
+    "pages/home/home",
+    "pages/index/index",  
+
+    "pages/detail/detail",    
+
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "./assets/icons/home.png",
+        "selectedIconPath": "./assets/icons/_home.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "./assets/icons/cart.png",
+        "selectedIconPath": "./assets/icons/_cart.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "iconPath": "./assets/icons/user.png",
+        "selectedIconPath": "./assets/icons/_user.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-search": "@vant/weapp/search",
+    "van-card": "@vant/weapp/card",
+    "van-button": "@vant/weapp/button",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-checkbox": "@vant/weapp/checkbox",
+    "van-image": "@vant/weapp/image/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-field": "@vant/weapp/field",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-tabbar": "@vant/weapp/tabbar",
+    "van-tabbar-item": "@vant/weapp/tabbar-item",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

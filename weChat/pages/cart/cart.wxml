@@ -1,0 +1,36 @@
+<view class="cart-content">
+<!-- 收货地址 -->
+  <view class="cart-main"  wx:for="{{itemList}}" wx:for-item="item" wx:key="cart_item">
+    <view class="cart-item">
+      <!-- 复选框 -->
+      <view class="cart-check">
+        <van-checkbox value="{{item.selected}}" shape="square" data-index="{{item}} "bind:change="onChangeSelect"/>
+      </view>
+      <!-- 商品图片 -->
+      <navigator class="cart-image">
+        <van-image width="80" height="80" src="{{item.book.image}}" alt="book"/>
+      </navigator>
+      <!-- 商品信息 -->
+      <view class="cart-info">
+        <view class="cart-item-name">{{item.book.name}}</view>
+        <view class="cart-item-price-quantity">
+          <view class="cart-item-price">￥{{item.book.price}}</view>
+          <van-stepper 
+              class="cart-item-quantity" 
+              value="{{item.quantity}}" 
+              min="0" integer 
+              data-index="{{item}}"
+              bind:change="onChangeQuantity"
+            />
+        </view>
+      </view>  
+    </view>        
+  </view>
+</view>
+
+<van-submit-bar
+  disabled = "{{isDisable}}"
+  price="{{totalPrice}}"
+  button-text="提交订单"
+  bind:submit="onSubmitOrder"
+/>

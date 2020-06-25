@@ -1,0 +1,16 @@
+.navbar{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  position: relative;
+  left:10rpx;
+  background-color: white;
+}
+
+.logo{
+  flex: 6;
+}
+
+.search{
+  flex: 18;
+}

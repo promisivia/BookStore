@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- input username and password -->
+  <view class="userinfo">
+    <van-cell-group>
+      <van-field bindblur="bindNameInput" label="用户名" placeholder="请输入用户名"/>
+      <van-field bindblur="bindPasswordInput" password="true" label="密码" placeholder="请输入密码" error-message="{{errorMessage}}" border= true />
+    </van-cell-group>
+  </view>
+  <!-- button -->
+  <view style="width:15rem; height:6rem; margin: 5rem 0 " >
+      <van-button round bindtap="bindViewTap" type="info" block>登录</van-button>
+  </view>
+</view>

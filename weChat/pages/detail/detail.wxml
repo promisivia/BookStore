@@ -1,0 +1,24 @@
+<!-- infomation -->
+<view class="book_info">
+  <image class="book-image" mode="aspectFit" src="{{book.image}}" />
+  <view class="book-price">￥{{book.price}}</view>
+  <van-panel title="{{book.name}}" desc="{{book.author}}" status="{{canBuy}}">
+    <view class="book-title">书籍详情</view>
+    <view class="book-detail">{{book.description}}</view>
+  </van-panel>
+</view>
+<!-- action -->
+<van-goods-action>
+  <van-goods-action-icon icon="wap-home-o" text="主页" bind:click="onClickIconHome" />
+  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIconCart" />
+  <view>
+    <van-goods-action-button class="action-button"
+      text="加入购物车"
+      type="danger"
+      bind:click="onAddToCart"
+    />
+  </view>
+</van-goods-action>
+
+
+

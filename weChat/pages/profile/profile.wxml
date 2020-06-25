@@ -1,0 +1,3 @@
+<!--pages/profile/profile.wxml-->
+<text>{{user.username}}用户!</text>
+<van-image src="{{user.image}}"></van-image>
