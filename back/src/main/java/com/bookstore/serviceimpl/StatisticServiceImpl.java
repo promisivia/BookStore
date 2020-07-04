@@ -14,8 +14,8 @@ import java.util.List;
 
 @Service
 public class StatisticServiceImpl implements StatisticService {
-    private final BookService bookService;
-    private final StatisticDao statisticDao;
+    private BookService bookService;
+    private StatisticDao statisticDao;
 
     @Autowired
     public StatisticServiceImpl(BookService bookService, StatisticDao statisticDao) {

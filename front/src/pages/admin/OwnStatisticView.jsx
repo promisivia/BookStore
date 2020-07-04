@@ -10,23 +10,16 @@ import {DateSelector} from "../../components/base/DatePicker";
 import {getOwnConsumeRecord} from "../../services/StatisticService";
 import {getUserId} from "../../utils/StorageUtils";
 import {OwnConsumeRecordChart} from '../../components/admin/OwnConsumeRecordChart'
-
+import {getStartTime} from '../../utils/TimeUtils'
 const { Header, Content, Sider, Footer } = Layout;
-
-function getStartTime() {
-    let start = new Date();
-    const month = start.getMonth() - 1;
-    start.setMonth(month);
-    return start;
-}
 
 const useStyles = makeStyles({
     card: {
-        marginBottom: 10,
+        marginBottom: 0,
         marginLeft: 20,
-        marginTop:0,
+        marginTop:10,
         marginRight:0,
-        padding: 30,
+        padding: 45,
         fontSize: 20,
     },
 });
@@ -40,7 +33,6 @@ export default function OwnStatisticView(){
     const [state, setState] = React.useState({
         start: getStartTime(), end: new Date(),
     })
-    console.log(state.start, state.end);
 
     React.useEffect(() => {
         getOwnConsumeRecord(getUserId(), state.start, state.end,

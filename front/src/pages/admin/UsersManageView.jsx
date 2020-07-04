@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/Home.css'
-import {Layout} from 'antd'
+import { Layout } from 'antd'
 import NavBar from '../../components/base/NavBar'
 import SideBar from '../../components/base/SideBar'
 import FootBar from "../../components/base/FootBar";

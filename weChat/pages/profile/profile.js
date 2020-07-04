@@ -9,7 +9,8 @@ Page({
    */
   data: {
     user:getUser(),
-    orderList:[],
+    orders: [],
+    active: 1,
   },
 
   /**
@@ -30,12 +31,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const start = new Date();
+    const end = new Date();
+    start.setDate(start.getDate()-365);
     request({ 
       url: "http://localhost:8814/order/get/one",
-      data: {userId: this.data.user.userId},
+      data: {userId:this.data.user.userId, query:"", start:start.toISOString(), end:end.toISOString() },
     }).then(response=>{
-      this.setData({orderList:response.data});     
-    })   
+      this.setData({orders:response.data});     
+    }) 
   },
 
   /**

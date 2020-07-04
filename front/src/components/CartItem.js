@@ -65,7 +65,7 @@ export function CartItem({ props }) {
                 <Grid item xs={12} sm={1}>
                     <Button variant="outlined" onClick={deleteFromCart}>
                         删除
-          </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Paper>

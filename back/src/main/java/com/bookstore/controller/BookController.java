@@ -17,8 +17,8 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping(value = "/book/get/all")
-    public List<BookDto> getBooks() {
-        return bookService.getBooks();
+    public List<BookDto> getBooks(@RequestParam("query") String query) {
+        return bookService.getBooks(query);
     }
 
     @RequestMapping(value = "/book/get/one")

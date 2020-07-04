@@ -3,7 +3,7 @@ import MaterialTable from 'material-table';
 import {List} from 'antd'
 
 export default function OrderManageTable({props}) {
-    const { filteredData } = props;
+    const { data } = props;
     return (
         <MaterialTable
             title = "所有订单"
@@ -37,19 +37,12 @@ export default function OrderManageTable({props}) {
                     }},
                 { title: '订单状态', field: 'payed', lookup: { true: '已付款', false: '待付款' },},
             ]}
-            data={filteredData}
+            data={data}
             options={{
                 selection: false,
                 filtering: false,
                 search: false,
             }}
-            // actions={[
-            //     {
-            //         tooltip: '结算此订单',
-            //         icon: 'done',
-            //         onClick: (evt, data) => alert('结算此订单')
-            //     }
-            // ]}
         />
     )
 }

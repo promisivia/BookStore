@@ -33,11 +33,10 @@ export default function BookManageTable() {
     const [data, setData] = React.useState([]);
 
     React.useEffect(() => {
-        getBooks(data => setData(data)).catch();
+        getBooks('',data => setData(data)).catch();
     }, []);
 
     function beforeUpload(oldData, changeData, file) {
-        console.log(oldData, changeData, file)
         const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
         if (!isJpgOrPng) {
             message.error('You can only upload JPG/PNG file!');

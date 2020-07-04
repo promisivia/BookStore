@@ -4,7 +4,8 @@ Page({
   data: {
     books:[],
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+    query:''
   },
 
   onLoad: function (options) {
@@ -12,8 +13,10 @@ Page({
   },
 
   getBook(){
-    request({ url: "http://localhost:8814/book/get/all"})
-    .then(result=>{
+    request({ url: "http://localhost:8814/book/get/all",
+    data: {
+      query:this.data.query}
+    }).then(result=>{
       this.setData({
         books: result.data
       })

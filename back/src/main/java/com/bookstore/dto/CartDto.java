@@ -10,10 +10,6 @@ public class CartDto extends ProductDto{
         this.selected = item.getSelected();
         this.book = book;
     }
-//    public CartDto(CartItem item, BookDto bookDto) {
-//        super(bookDto, item.getQuantity());
-//        this.selected = item.getSelected();
-//    }
 
     public Boolean getSelected() {
         return selected;

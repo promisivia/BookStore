@@ -1,3 +1,14 @@
-<!--pages/profile/profile.wxml-->
-<text>{{user.username}}用户!</text>
-<van-image src="{{user.image}}"></van-image>
+<!-- avatar and name -->
+<view>
+  <van-image round class="center" width="5rem" height="5rem" src="{{user.avatar}}"/>
+  <view class="center">{{user.username}}</view>
+</view>
+<!-- tag -->
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab class="center" title="动态">暂无动态</van-tab>
+  <van-tab title="订单">
+    <view class="order_list" wx:for="{{orders}}" wx:for-item="order" wx:key="order_item">
+      <orderItem order="{{order}}"/>
+    </view>
+  </van-tab>
+</van-tabs>

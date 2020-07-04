@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../css/Admin.css'
-
 import NavBar from '../../components/base/NavBar'
 import SideBar from '../../components/base/SideBar'
 import BookManageTable from "../../components/admin/BookManageTable";

@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../css/Admin.css'
-
 import NavBar from '../../components/base/NavBar'
 import SideBar from '../../components/base/SideBar'
 import SaleRecordTable from "../../components/admin/SaleRecordTable";
@@ -9,14 +8,8 @@ import {DateSelector} from "../../components/base/DatePicker";
 import {Grid, Paper} from "@material-ui/core";
 import { Layout } from 'antd'
 import {getSaleList} from "../../services/StatisticService";
+import {getStartTime} from '../../utils/TimeUtils'
 const { Header, Content, Sider, Footer } = Layout;
-
-function getStartTime() {
-    let start = new Date();
-    const month = start.getMonth() - 1;
-    start.setMonth(month);
-    return start;
-}
 
 export default function SaleStatisticView() {
     const [data, setData] = React.useState([])

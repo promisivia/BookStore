@@ -1,5 +1,5 @@
 import { request } from "../../request/index"
-import { saveUser } from "../../utils/storage"
+import { saveUser, removeUser } from "../../utils/storage"
 
 //index.js
 //获取应用实例
@@ -19,6 +19,7 @@ Page({
   bindPasswordInput: function(event){
     this.setData({ password: event.detail.value })
   },
+  
   //事件处理函数
   bindViewTap: function() {
     var that = this;
@@ -27,10 +28,11 @@ Page({
         username: this.data.userName,
         password: this.data.password
       }}).then(response =>{
-        if(response.data.status===0){
+        if(response.data.status !== 200){
           that.setData({"errorMessage" : "用户名密码错误"});
         }else{
-          saveUser(response.data.user);
+          removeUser();
+          saveUser(response.data.data);          
           wx.switchTab({
             url: '../home/home'
           })

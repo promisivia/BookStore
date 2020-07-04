@@ -16,8 +16,12 @@ import java.util.List;
 
 @Service
 public class BookServiceImpl implements BookService {
-    @Autowired
     private BookDao bookDao;
+
+    @Autowired
+    public BookServiceImpl(BookDao bookDao){
+        this.bookDao = bookDao;
+    }
 
     @Override
     public BookDto getBook(Long id){
@@ -28,8 +32,8 @@ public class BookServiceImpl implements BookService {
     public BookDto getOldBook(Long id, Date date){ return bookDao.findOneWithDate(id,date);}
 
     @Override
-    public List<BookDto> getBooks() {
-        return bookDao.findAll();
+    public List<BookDto> getBooks(String query) {
+        return bookDao.findAll(query);
     }
 
     @Override

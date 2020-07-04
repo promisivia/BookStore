@@ -10,14 +10,10 @@ export default function BookList(props) {
   const [query, setQuery] = React.useState('');
 
   React.useEffect(() => {
-    getBooks(data => setData(data)).catch();
-  }, []);
+    getBooks(query, data => setData(data)).catch();
+  }, [query]);
 
-  const filteredData = data.filter(product => {
-    return product.name.toLowerCase().includes(query.toLowerCase());
-  });
-
-  let itemList = filteredData.map((product, key) => {
+  let itemList = data.map((product, key) => {
     return (
       <Card
         style={{margin: 10}}

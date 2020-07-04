@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function OrderList({props}) {
     const classes = useStyles();
-    const { filteredData } = props;
+    const { data } = props;
     return(
-        filteredData.map((item)=> {
+        data.map((item)=> {
             const date = new Date(item.date).toLocaleString('zh');
             return (
-                <Paper style={{padding:"2%"}}>
+                <Paper style={{padding:"2%"}} key={item.orderId}>
                     <Grid
                         container
                         direction="row"
@@ -43,8 +43,8 @@ export default function OrderList({props}) {
                         className={classes.normal}
                     >
                         <Grid item xs={9} >
-                            {item.productList.map((product)=>{
-                                return <OrderItem props={{product}}/>;
+                            {item.productList.map((product, key)=>{
+                                return <OrderItem key={key} props={{product}}/>;
                             })}
                         </Grid>
                         <Grid item xs>

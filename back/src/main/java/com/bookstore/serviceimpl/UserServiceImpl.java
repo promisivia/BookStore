@@ -12,9 +12,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-import static com.bookstore.constant.ResponseCode.USER_LOGIN_ERROR;
-import static com.bookstore.constant.ResponseCode.USER_NOT_REGISTERED;
-
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired

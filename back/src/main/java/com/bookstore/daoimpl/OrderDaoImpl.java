@@ -8,6 +8,7 @@ import com.bookstore.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -22,13 +23,13 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public List<Order> getOrder(Long userId){
-        return orderRepository.findByUserIdOrderByOrderIdDesc(userId);
+    public List<Order> getOrder(Long userId, Date start, Date end){
+        return orderRepository.findByUserId(userId, start, end);
     }
 
     @Override
-    public List<Order> getAllOrder(){
-        return orderRepository.findAll();
+    public List<Order> getAllOrder(Date start, Date end){
+        return orderRepository.findAll(start, end);
     }
 
     @Override

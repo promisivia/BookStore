@@ -19,10 +19,10 @@ import java.util.*;
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
-    private final OrderDao orderDao;
-    private final BookService bookService;
-    private final CartService cartService;
-    private final EntityManager entityManager;
+    private OrderDao orderDao;
+    private BookService bookService;
+    private CartService cartService;
+    private EntityManager entityManager;
 
     @Autowired
     public OrderServiceImpl(OrderDao orderDao, BookService bookService, CartService cartService, EntityManager entityManager) {
@@ -32,32 +32,34 @@ public class OrderServiceImpl implements OrderService {
         this.entityManager = entityManager;
     }
 
-    protected List<OrderResponseDto> setProduct(List<Order> orderList){
+    protected List<OrderResponseDto> setProduct(List<Order> orderList, String query){
         List<OrderResponseDto> res =  new ArrayList<>();
         // set book info of every order item
         for( Order order:orderList) {
             List<ProductDto> productList = new ArrayList<>();
             Date date = order.getDate();
+            boolean flag = false;
             for(OrderItem item:order.getBookList()){
                 BookDto book = bookService.getOldBook(item.getBookId(),date);
+                if(book.getName().toLowerCase().contains(query.toLowerCase())) flag = true;
                 ProductDto product = new ProductDto(book,item.getQuantity());
                 productList.add(product);
             }
-            res.add(new OrderResponseDto(order,productList));
+            if(flag) res.add(new OrderResponseDto(order,productList));
         }
         return res;
     }
 
     @Override
-    public List<OrderResponseDto> getOrder(Long userId){
-        List<Order> orderList =  orderDao.getOrder(userId);
-        return setProduct(orderList);
+    public List<OrderResponseDto> getOrder(Long userId, String query, Date start, Date end){
+        List<Order> orderList =  orderDao.getOrder(userId, start, end);
+        return setProduct(orderList, query);
     }
 
     @Override
-    public List<OrderResponseDto> getAllOrder(){
-        List<Order> orderList =  orderDao.getAllOrder();
-        return setProduct(orderList);
+    public List<OrderResponseDto> getAllOrder(String query, Date start, Date end){
+        List<Order> orderList =  orderDao.getAllOrder(start, end);
+        return setProduct(orderList, query);
     }
 
     @Override
@@ -95,9 +97,4 @@ public class OrderServiceImpl implements OrderService {
         return cartService.getCart(userId);
     }
 
-    @Override
-    @Transactional
-    public void delete(Long id){
-        orderDao.deleteWithBookId(id);
-    }
 }

@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface BookDao {
-    List<BookDto> findAll();
+    List<BookDto> findAll(String query);
     BookDto findOne(Long id);
     BookDto findOneWithDate(Long id, Date date);
     Double getCurrentPrice(Long id);

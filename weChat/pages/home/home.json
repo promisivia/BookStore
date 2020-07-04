@@ -2,6 +2,7 @@
   "navigationBarTitleText": "主页",
   "usingComponents": {
     "navbar":"../../components/navbar/navbar",
-    "tabbar":"../../components/tabbar/tabbar"
+    "tabbar":"../../components/tabbar/tabbar",
+    "bookItem":"../../components/bookItem/bookItem"
   }
 }

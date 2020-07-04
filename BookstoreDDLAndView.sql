@@ -130,7 +130,7 @@ INSERT INTO `user` VALUES ('1', 'admin', '12345','13321982841@163.com',  'ADMIN'
 -- Table structure for user
 -- ----------------------------
 CREATE TABLE `USER_INFO` (
-                             `user_id` int(11) NOT NULL,
+                             `user_id` bigint NOT NULL,
                              `phone` varchar(255) NOT NULL,
                              `address` varchar(255) NOT NULL,
                              PRIMARY KEY (`user_id`,`phone`,`address`),
@@ -140,7 +140,7 @@ CREATE TABLE `USER_INFO` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `USER_INFO` VALUES ('1', '13321982841', 'XXX');
+INSERT INTO `USER_INFO` VALUES(173,"13321982841","上海市闵行区东川路800号");
 
 
 -- ----------------------------

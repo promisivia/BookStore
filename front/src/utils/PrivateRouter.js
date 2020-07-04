@@ -1,20 +1,21 @@
-
 import React from "react";
+import { message } from "antd";
 import { Redirect, Route } from "react-router-dom";
-import { getRemember } from "./StorageUtils";
+import { getUser } from "./StorageUtils";
 
-export function LoginRoute({ component: Component, ...rest }) {
-    const remember = getRemember();
+export function PrivateRoute({ component: Component, ...rest }) {
+    const user = getUser();
     return (
         <Route
             {...rest}
             render={props => {
-                if (remember === false) {
+                if (user) {
                     return <Component {...props}/>
                 } else {
+                    message.warning("需要先登陆");
                     return (<Redirect
                         to={{
-                            pathname: "/home",
+                            pathname: "/login",
                             state: {from: props.location}
                         }}
                     />);

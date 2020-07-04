@@ -8,8 +8,8 @@ export const getBook = async (id,setData)=>{
         .catch(error=>console.log(error));
 };
 
-export const getBooks = async (setData)=>{
-    axios.get("http://localhost:8814/book/get/all")
+export const getBooks = async (query, setData)=>{
+    axios.post("http://localhost:8814/book/get/all", qs.stringify({ query: query }))
         .then(response =>setData(response.data))
         .catch(error=>console.log(error));
 };

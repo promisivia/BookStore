@@ -10,8 +10,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book,Long> {
-    @Query("select b from Book b where b.exist = true")
-    List<Book> getAll();
+    @Query("select b from Book b where b.exist = true and b.name like CONCAT('%',:query,'%')")
+    List<Book> getAllByQuery(@Param("query") String query);
 
     @Transactional
     @Modifying

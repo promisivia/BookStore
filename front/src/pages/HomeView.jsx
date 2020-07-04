@@ -5,7 +5,6 @@ import SideBar from '../components/base/SideBar'
 import StoreCarousel from '../components/StoreCarousel'
 import BookList from '../components/BookList'
 import FootBar from "../components/base/FootBar";
-import InfoBar from '../components/base/InfoBar'
 import {SearchBar} from "../components/base/SearchBar";
 import {Layout} from 'antd'
 import {Grid} from '@material-ui/core';
@@ -17,12 +16,8 @@ export default function HomeView() {
     const [query,setQuery] = React.useState('');
 
     React.useEffect(() => {
-        getBooks((data)=>setData(data)).catch();
-    }, []);
-
-    const filteredData = data.filter(product=>{
-        return product.name.toLowerCase().includes(query.toLowerCase())
-    })
+        getBooks(query,(data)=>setData(data)).catch();
+    }, [query]);
 
     return(
         <Layout>
@@ -46,9 +41,7 @@ export default function HomeView() {
                         props={{query, setQuery}}
                     />
                     <StoreCarousel/>
-                    {data.length === 0 ?
-                        <InfoBar type="LOADING"/> : <BookList props={{filteredData}}/>
-                    }
+                    <BookList props={{data}}/>
                 </Grid>
             </Layout>
             <Footer>

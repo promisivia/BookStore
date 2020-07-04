@@ -8,9 +8,9 @@ export const getBook = async (id, setData) => {
     .catch(error => console.log(error));
 };
 
-export const getBooks = async setData => {
+export const getBooks = async (query, setData) => {
   axios
-    .get('http://10.0.2.2:8814/book/get/all')
+    .post('http://10.0.2.2:8814/book/get/all', qs.stringify({query: query}))
     .then(response => setData(response.data))
     .catch(error => console.log(error));
 };

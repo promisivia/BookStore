@@ -1,7 +1,6 @@
 import React from 'react';
 import {Router, Route, Switch, Redirect} from 'react-router-dom';
-import { AuthRoute } from './utils/AuthRouter';
-import { LoginRoute } from './utils/LoginRouter'
+import { PrivateRoute } from './utils/PrivateRouter';
 import { AdminRoute } from "./pages/admin/AdminRouter";
 import { history } from './utils/HistoryUtils'
 import HomeView from './pages/HomeView'
@@ -17,14 +16,14 @@ export default function BasicRouter() {
     return(
         <Router history={history}>
             <Switch>
-                <LoginRoute path='/login' component={LoginView}/>
-                <LoginRoute path='/registration' component={RegisterView}/>
-                <AuthRoute path='/home' component={HomeView}/>
-                <AuthRoute path='/details' component={BookDetailsView}/>
-                <AuthRoute path='/cart' component={CartView}/>
-                <AuthRoute path='/orders' component={OrdersView}/>
-                <AuthRoute path='/profile' component={ProfileView}/>
-                <AuthRoute path='/statistic' component={OwnStatisticView}/>
+                <Route path='/login' component={LoginView}/>
+                <Route path='/registration' component={RegisterView}/>
+                <PrivateRoute path='/home' component={HomeView}/>
+                <PrivateRoute path='/details' component={BookDetailsView}/>
+                <PrivateRoute path='/cart' component={CartView}/>
+                <PrivateRoute path='/orders' component={OrdersView}/>
+                <PrivateRoute path='/profile' component={ProfileView}/>
+                <PrivateRoute path='/statistic' component={OwnStatisticView}/>
                 <Route path='/admin' component={AdminRoute}/>
                 <Redirect from="/*" to="/login" />
             </Switch>

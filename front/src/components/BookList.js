@@ -31,12 +31,12 @@ const useStyles = makeStyles({
 
 export default function BookList({props}){
     const classes = useStyles();
-    const filteredData = props.filteredData;
+    const data = props.data;
     return(
-        filteredData.length === 0?
+        data.length === 0?
             <InfoBar type="NOT_FOUND"/> :
             <Grid container className={classes.root} justify="flex-start" spacing={2}>
-                {filteredData.map((product,key)=>{
+                {data.map((product,key)=>{
                     return(
                         <Link
                             className={classes.card}

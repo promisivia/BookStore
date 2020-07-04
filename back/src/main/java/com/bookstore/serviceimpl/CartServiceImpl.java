@@ -1,13 +1,11 @@
 package com.bookstore.serviceimpl;
 
-import com.bookstore.dao.BookDao;
 import com.bookstore.dao.CartDao;
 import com.bookstore.dto.BookDto;
 import com.bookstore.dto.CartDto;
 import com.bookstore.entity.CartItem;
 import com.bookstore.service.BookService;
 import com.bookstore.service.CartService;
-import com.bookstore.utils.multikeys.CartMultiKeys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +14,8 @@ import java.util.List;
 
 @Service
 public class CartServiceImpl implements CartService {
-    private final CartDao cartDao;
-    private final BookService bookService;
+    private CartDao cartDao;
+    private BookService bookService;
 
     @Autowired
     public CartServiceImpl(CartDao cartDao, BookService bookService) {

@@ -73,8 +73,8 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<BookDto> findAll() {
-        List<Book> bookList = bookRepository.getAll();
+    public List<BookDto> findAll(String query) {
+        List<Book> bookList = bookRepository.getAllByQuery(query);
         List<BookDto> bookDtoList = new ArrayList<>();
         for(Book book: bookList){
             BookDetail detail = bookDetailRepository.getById(book.getId());

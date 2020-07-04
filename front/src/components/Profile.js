@@ -32,7 +32,6 @@ export default function Profile() {
 
     const onFinish = values => {
         const data = {userId: user.userId, avatar: state.avatar }
-        console.log(data)
         setProfile(data,setState).catch()
     };
 
@@ -54,14 +53,14 @@ export default function Profile() {
 
     return (
         <Form name="dynamic_form_item" {...formItemLayoutWithOutLabel} style={{padding:'2% 0'}} onFinish={onFinish}>
-            <Form.Item label="Name" {...formItemLayout}>
+            <Form.Item label="昵称" {...formItemLayout}>
                 <Typography editable={{ onChange: false }}>{user.username}</Typography>
             </Form.Item>
-            <Form.Item label="E-mail" {...formItemLayout}>
+            <Form.Item label="邮箱" {...formItemLayout}>
                 <Typography editable={{ onChange: true }}>{user.email}</Typography>
             </Form.Item>
-            <Form.Item label="Avatar" {...formItemLayout}>
-                <Form.Item name="avatar" noStyle>
+            <Form.Item label="头像" {...formItemLayout}>
+                <Form.Item name="Avatar" noStyle>
                     <Upload
                         name="avatar"
                         listType="picture-card"
@@ -78,7 +77,7 @@ export default function Profile() {
                         }
                     </Upload>
                 </Form.Item>
-                <span className="ant-form-text">Upload your avatar</span>
+                <span className="ant-form-text">上传你的头像</span>
             </Form.Item>
 
             <Form.List name="names">
@@ -126,7 +125,7 @@ export default function Profile() {
                                     }}
                                     style={{ width: '60%' }}
                                 >
-                                    <PlusOutlined /> Add Address and Phone
+                                    <PlusOutlined />添加地址和手机号
                                 </Button>
                             </Form.Item>
                         </div>
@@ -135,7 +134,7 @@ export default function Profile() {
             </Form.List>
             <Form.Item>
                 <Button type="primary" htmlType="submit">
-                    Submit
+                    提交
                 </Button>
             </Form.Item>
         </Form>

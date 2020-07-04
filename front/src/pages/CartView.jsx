@@ -27,7 +27,7 @@ export default function CartView(){
                 <Grid container direction="row" justify="space-around" alignItems="center">
                     <Grid item xs={12} sm={2} container direction="row" alignItems="center">
                         <Grid item xs={5}>
-                            <Typography alignCenter>选择</Typography>
+                            <Typography>选择</Typography>
                         </Grid>
                         <Grid item xs>
                             <Typography>图片</Typography>

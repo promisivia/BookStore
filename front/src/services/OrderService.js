@@ -38,16 +38,18 @@ export const addOrder = async (order,setData)=> {
         .catch(error => console.log(error));
 }
 
-export const getOrder = async (id,setData)=> {
-    axios.post("http://localhost:8814/order/get/one", qs.stringify({userId: id}))
+export const getOrder = async (id, query, start, end, setData)=> {
+    axios.post("http://localhost:8814/order/get/one",
+        qs.stringify({userId: id, query: query, start:start, end:end}))
         .then(response => {
             setData(response.data)
         })
         .catch(error => console.log(error));
 }
 
-export const getAllOrder = async (setData)=> {
-    axios.post("http://localhost:8814/order/get/all")
+export const getAllOrder = async (query, start, end, setData)=> {
+    axios.post("http://localhost:8814/order/get/all",
+        qs.stringify({query: query, start:start, end:end}))
         .then(response => {
             setData(response.data)
         })

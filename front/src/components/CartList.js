@@ -101,8 +101,8 @@ export default function CartList({props}) {
                             direction="column"
                             justify="flex-end"
                         >
-                            {cartList.map(product => {
-                                return product.selected ? <OrderItem props={{product}}/> : null
+                            {cartList.map((product, key) => {
+                                return product.selected ? <OrderItem key={{key}} props={{product}}/> : null
                             })}
                             <Grid container alignItems="flex-end">
                                 <Typography>收货人：{getUser().username}</Typography>

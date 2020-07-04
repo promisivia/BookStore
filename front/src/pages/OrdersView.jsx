@@ -11,6 +11,7 @@ import {SearchBar} from "../components/base/SearchBar";
 import {getOrder} from "../services/OrderService";
 import {getUserId} from "../utils/StorageUtils";
 import InfoBar from "../components/base/InfoBar";
+import {getStartTime} from '../utils/TimeUtils'
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -18,33 +19,16 @@ export default function OrdersView(){
     const [data, setData] = React.useState([])
     const [loading,setLoading] = React.useState(true);
     const [state, setState] = React.useState({
-        start: new Date(),
+        start: getStartTime(),
         end: new Date(),
         filtered: false,
     })
-    const [query,setQuery] = React.useState("");
+    const [query,setQuery] = React.useState('');
 
     React.useEffect(() => {
-        getOrder(getUserId(), (data) => {setData(data)}).catch();
+        getOrder(getUserId(), query, state.start, state.end, (data) => {setData(data)}).catch();
         setLoading(false);
-    }, [state,query]);
-
-    const filteredData = data.filter( item => {
-        // check date
-        state.start.setHours(0);
-        state.end.setHours(24);
-        let itemDate = new Date(item.date).getTime();
-        if (state.filtered && (itemDate < state.start.getTime() || itemDate > state.end.getTime())){
-            return false;
-        }
-        // check query
-        let containQuery = false;
-        item.productList.forEach(product =>{
-            if(product.book.name.toLowerCase().includes(query.toLowerCase()))
-                containQuery =  true;
-        })
-        return containQuery;
-    });
+    }, [query, state]);
 
     return(
         <Layout>
@@ -73,7 +57,7 @@ export default function OrdersView(){
                     {loading ?
                         <CircularProgress/> :
                         data.length === 0 ?
-                            <InfoBar type="NO_ORDER"/> : <OrderList props={{filteredData}}/>
+                            <InfoBar type="NO_ORDER"/> : <OrderList props={{data}}/>
                     }
                 </Content>
             </Layout>

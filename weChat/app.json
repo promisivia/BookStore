@@ -1,12 +1,10 @@
 {
   "pages": [ 
-    "pages/profile/profile",  
-    "pages/cart/cart", 
+    "pages/index/index",
     "pages/home/home",
-    "pages/index/index",  
-
+    "pages/cart/cart", 
     "pages/detail/detail",    
-
+    "pages/profile/profile",  
     "pages/logs/logs"
   ],
   "window": {

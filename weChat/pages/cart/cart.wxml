@@ -1,10 +1,10 @@
 <view class="cart-content">
-<!-- 收货地址 -->
+  <view wx:if="{{itemList.length === 0}}">没有商品</view>
   <view class="cart-main"  wx:for="{{itemList}}" wx:for-item="item" wx:key="cart_item">
     <view class="cart-item">
       <!-- 复选框 -->
       <view class="cart-check">
-        <van-checkbox value="{{item.selected}}" shape="square" data-index="{{item}} "bind:change="onChangeSelect"/>
+        <van-checkbox value="{{item.selected}}" shape="square" data-index="{{item}}" bind:change="onChangeSelect"/>
       </view>
       <!-- 商品图片 -->
       <navigator class="cart-image">

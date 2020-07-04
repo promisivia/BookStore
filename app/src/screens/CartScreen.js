@@ -10,7 +10,7 @@ import {
   Portal,
 } from 'react-native-paper';
 import UserStorage from '../utils/StorageUtils';
-import CartList from '../components/CartItem';
+import CartList from '../components/CartList';
 import axios from 'axios';
 import qs from 'qs';
 import {addOrder, Order, BookListItem} from '../services/OrderService';
@@ -23,16 +23,13 @@ export default function CartScreen({navigation}) {
 
   useFocusEffect(
     React.useCallback(() => {
-      UserStorage.getId()
-        .then(data => {
-          setUserId(data);
-        })
-        .then(() => {
-          axios
-            .post('http://10.0.2.2:8814/cart/get', qs.stringify({id: userId}))
-            .then(response => setCartList(response.data))
-            .catch();
-        });
+      UserStorage.getId().then(id => {
+        setUserId(id);
+        axios
+          .post('http://10.0.2.2:8814/cart/get', qs.stringify({id: id}))
+          .then(response => setCartList(response.data))
+          .catch();
+      });
     }, [navigation]),
   );
 

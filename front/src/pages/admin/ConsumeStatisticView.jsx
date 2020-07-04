@@ -8,15 +8,9 @@ import FootBar from "../../components/base/FootBar";
 import {DateSelector} from "../../components/base/DatePicker";
 import {getAllConsumeRecord} from "../../services/StatisticService";
 import ConsumeRecordChart from '../../components/admin/ConsumeRecordChart'
+import {getStartTime} from '../../utils/TimeUtils'
 
 const { Header, Content, Sider, Footer } = Layout;
-
-function getStartTime() {
-    let start = new Date();
-    const month = start.getMonth() - 1;
-    start.setMonth(month);
-    return start;
-}
 
 export default function ConsumeStatisticView(){
     const [data, setData] = React.useState([])

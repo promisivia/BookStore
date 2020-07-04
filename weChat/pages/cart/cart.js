@@ -59,6 +59,7 @@ Page({
 
   onChangeSelect(event){
     const item = event.currentTarget.dataset.index;
+    
     let newItem = new Item(this.data.userId, item.book.id, item.quantity, !item.selected);
     request({ 
       url: "http://localhost:8814/cart/update",
@@ -85,8 +86,24 @@ Page({
       method: "post",
       data: order,
     }).then(response=>{
-      this.setData({itemList:response.data});
-      this.setTotalPrice(response.data);  
+      if(response.data.status == 200){
+        wx.showToast({
+          title: '添加成功',
+          icon: 'succes',
+          duration: 1000,
+          mask:true
+        })
+        this.setData({itemList:response.data.data});
+        this.setTotalPrice(response.data.data);  
+      }else{
+        wx.showToast({
+          title: response.data.message,
+          icon: 'error',
+          duration: 1000,
+          mask:true
+        })
+      }
+      
     })   
   },
 

@@ -8,8 +8,7 @@ public class BaseItem {
     protected Book book;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JoinColumn(name="book_id",referencedColumnName ="id")
-    @Transient
+    @JoinColumn(name="book_id", referencedColumnName ="id")
     public Book getBook() {
         return book;
     }

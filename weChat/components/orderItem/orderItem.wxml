@@ -1,0 +1,6 @@
+<van-panel 
+  title="买书订单：{{order.orderId}}" 
+  desc="购买日期：{{order.date}}" 
+  status="已付款"
+>
+</van-panel>
