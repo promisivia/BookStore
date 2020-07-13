@@ -1,0 +1,6 @@
+<!--底边栏-->
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="home-o" is-link profilelink-type="navigateTo" url="../../pages/home/home">商城</van-tabbar-item>
+  <van-tabbar-item icon="cart-o" is-link profilelink-type="navigateTo" url="../../pages/cart/cart">购物车</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
+</van-tabbar>

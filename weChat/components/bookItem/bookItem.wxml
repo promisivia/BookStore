@@ -1,0 +1,8 @@
+<van-card 
+    class="book_card"
+    tag="{{book.type}}"
+    price="{{book.price}}" 
+    desc="作者：{{book.author}}" 
+    title="{{book.name}}" 
+    thumb="{{book.image}}">
+</van-card>

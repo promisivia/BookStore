@@ -1,0 +1,50 @@
+.book_info{
+  height: 100rpx;
+  text-align: left;
+  padding: 15rpx;
+}
+
+.book-image{
+  height: 500rpx;
+}
+
+.book-price{
+  padding:  15rpx 30rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color:#F11727;
+}
+
+.book-name{
+  padding: 18rpx;
+  font-size: 36rpx;
+  font-weight: 450;
+  color: black;
+}
+
+.book-title{
+  padding:  10rpx 28rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  border-top: 6rpx solid #dedede;
+  border-bottom: 6rpx solid #dedede;
+  color:#F11727;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.book-detail{
+  height: 180rpx;
+  padding: 28rpx;
+  font-size: 32rpx;
+  text-indent: 1em;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+.action-button{
+  float: right;
+}

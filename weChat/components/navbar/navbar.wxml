@@ -1,0 +1,10 @@
+<view class="navbar">
+  <!-- logo -->
+  <navigator class="logo">
+    <image class="logo-image" style="width:180rpx; height: 60rpx" src="../../assets/logo.jpg"></image>
+  </navigator>
+  <!-- search -->
+  <view class="search">
+     <van-search value="{{query}}" input-align="center" placeholder="请输入搜索关键词"></van-search>
+  </view>
+</view>

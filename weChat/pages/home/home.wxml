@@ -1,0 +1,11 @@
+<view class="home">
+  <!-- navbar -->
+  <navbar></navbar>
+  <!-- booklist -->
+  <van-divider contentPosition="left">全部商品</van-divider>
+  <view class="book_list" wx:for="{{books}}" wx:for-item="book" wx:key="book_item">
+    <navigator url="../detail/detail?id={{book.id}}">
+      <bookItem book="{{book}}"/>
+    </navigator>   
+  </view>
+</view>

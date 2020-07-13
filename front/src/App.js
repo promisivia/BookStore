@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import './App.css';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
@@ -24,6 +25,14 @@ class App extends React.Component {
                 </Switch>
             </BrowserRouter>
         )
+=======
+import './css/App.css';
+import BasicRouter from './router'
+
+class App extends React.Component {
+    render() {
+        return <BasicRouter/>
+>>>>>>> master
     }
 }
 
