@@ -15,7 +15,6 @@ export const getBooks = async (query, setData)=>{
 };
 
 export const editBook = async (book,setData)=>{
-    console.log(book)
     axios.post("http://localhost:8814/book/edit",
         qs.stringify(book))
         .then(response => {
@@ -51,7 +50,6 @@ export const deleteBook = async (id)=>{
 };
 
 export const checkBook = (book) => {
-    console.log(book)
     const regExp = /^\+?[1-9][0-9]*$/
     for (const attribute in book){
         if(book[attribute] === null || book[attribute] === undefined || book[attribute]==="" ){
