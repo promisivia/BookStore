@@ -17,7 +17,7 @@
     "lodash": "^4.17.15",
     "material-table": "^1.57.2",
     "moment": "^2.24.0",
-    "qs": "^6.9.3",
+    "qs": "^6.9.7",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
